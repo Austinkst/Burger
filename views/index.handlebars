@@ -1,0 +1,40 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers With All The Jams!</h2>
+
+<ul>
+<strong>{{#each burgers}}</strong>
+  {{#unless destroyed}}
+  {{this.burger_name}}
+  {{> burgers/burger-block destroyed=true}}
+  {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>BURGER DESTROYED!</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  {{this.burger_name}}
+  {{> burgers/burger-block devoured=false}}
+  {{/if}}
+  {{/each}}
+</ul>
+
+<div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="destroyed">Destroyed?</label><br>
+    <input type="radio" name="destroyed" value="1" checked> DESTROYED!<br>
+    <input type="radio" name="destroyed" value="0"> STILL STANDING
+  </div>
+
+<button type="submit">LETS BURGER IT UP!</button>
+</form>
+
+
+
